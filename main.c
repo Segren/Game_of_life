@@ -24,7 +24,7 @@ typedef struct{
 } GameField;
 
 
-GameField *CreateGameField(int rows, int cols){     //создаем полt и выделяем память
+GameField *CreateGameField(int rows, int cols){     //создаем поле и выделяем память
     GameField *field=malloc(sizeof(GameField));
     field->rows = rows;
     field->cols = cols;
@@ -201,15 +201,10 @@ void run_field(GameField* field){
 int main(){
     int rows;
     int cols;
-
     scan_rows_cols(&rows,&cols);
-
     GameField* field = CreateGameField(rows,cols);
     initialize_game_field(field);
-
     run_field(field);
-
     free_game_field(field);
-
     return 0;
 }
