@@ -183,15 +183,7 @@ bool has_alive_cells(GameField *field){
     return false;
 }
 
-int main(){
-    int rows;
-    int cols;
-
-    scan_rows_cols(&rows,&cols);
-
-    GameField* field = CreateGameField(rows,cols);
-    initialize_game_field(field);
-
+void run_field(GameField* field){
     for(int i=1;i<=20;i++){
         system("clear");
         printf("Generation: %d\n",i);
@@ -203,7 +195,19 @@ int main(){
             break;
         }  
         sleep(1);    
-    }
+    }    
+}
+
+int main(){
+    int rows;
+    int cols;
+
+    scan_rows_cols(&rows,&cols);
+
+    GameField* field = CreateGameField(rows,cols);
+    initialize_game_field(field);
+
+    run_field(field);
 
     free_game_field(field);
 
